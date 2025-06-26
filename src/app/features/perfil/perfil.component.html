@@ -1,0 +1,107 @@
+<div class="perfil-container">
+  <mat-card class="perfil-card" *ngIf="!isLoading && !error && usuario">
+    <mat-card-header>
+      <mat-card-title>Perfil</mat-card-title>
+      <button mat-icon-button class="logout-button" (click)="logout()" matTooltip="Sair">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="welcome-message" *ngIf="usuario.nome">
+        <h2>Bem-vindo(a), {{ usuario.nome }}!</h2>
+      </div>
+      <div class="welcome-message" *ngIf="!usuario.nome">
+        <h2>Bem-vindo(a)!</h2>
+      </div>
+
+      <div class="user-info-panel">
+        <h3 class="section-title">Informações do Usuário</h3>
+
+        <div class="user-info">
+          <div class="info-item">
+            <div class="info-label">
+              <mat-icon>email</mat-icon>
+              <strong>E-mail:</strong>
+            </div>
+            <span class="info-value">{{ usuario.email }}</span>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">
+              <mat-icon>account_circle</mat-icon>
+              <strong>Tipo de Conta:</strong>
+            </div>
+            <span class="info-value" [ngClass]="{'premium': usuario.tipo === 'Pago'}">
+              {{ usuario.tipo }}
+              <mat-icon *ngIf="usuario.tipo === 'Pago'" class="premium-icon">verified</mat-icon>
+            </span>
+          </div>
+        </div>
+
+        <div class="certificado-section" *ngIf="usuario.tipo === 'Pago'">
+          <h3 class="section-title">Certificado</h3>
+          <div class="certificado-content">
+            <p class="certificado-info">
+              Como usuário premium, você tem acesso ao certificado de participação do curso "Chamados Para Curar".
+            </p>
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="downloadingCertificado"
+              (click)="onDownloadCertificado()">
+              <mat-spinner *ngIf="downloadingCertificado" [diameter]="20"></mat-spinner>
+              <span *ngIf="!downloadingCertificado">
+                <mat-icon>download</mat-icon>
+                Baixar Certificado
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Seção de Devocionais -->
+        <div class="devocional-section">
+          <h3 class="section-title">Devocional</h3>
+          <div class="devocional-content">
+            <p class="devocional-info">
+              Acesse o devocional do dia para sua reflexão e crescimento espiritual.
+            </p>
+            <a routerLink="/devocionais" mat-raised-button color="accent">
+              <mat-icon>menu_book</mat-icon>
+              Ver Devocional
+            </a>
+          </div>
+        </div>
+
+        <!-- Seção de Administração (visível apenas para administradores) -->
+        <div class="admin-section" *ngIf="usuario.tipo === 'Admin'">
+          <h3 class="section-title">Administração</h3>
+          <div class="admin-content">
+            <p class="admin-info">
+              Acesse as ferramentas administrativas para gerenciar o conteúdo do site.
+            </p>
+            <div class="admin-buttons">
+              <a routerLink="/admin/devocionais" mat-raised-button color="warn" class="admin-button">
+                <mat-icon>list</mat-icon>
+                Listar Devocionais
+              </a>
+              <a routerLink="/admin/devocionais/novo" mat-raised-button color="primary" class="admin-button">
+                <mat-icon>add</mat-icon>
+                Novo Devocional
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="loading-spinner" *ngIf="isLoading">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+
+  <div class="error-message" *ngIf="error">
+    <p>{{ error }}</p>
+    <button mat-button color="primary" (click)="carregarDadosUsuario()">Tentar novamente</button>
+  </div>
+</div>

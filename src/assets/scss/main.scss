@@ -1,0 +1,261 @@
+@import 'variables';
+@import 'mixins';
+
+// Estilos base
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $color-primary-800;
+  background-color: $color-white;
+}
+
+// Tipografia
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $color-primary-900;
+  margin-bottom: $spacing-4;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+
+  @include responsive(md) {
+    font-size: $font-size-5xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+
+  @include responsive(md) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+
+  @include responsive(md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-xl;
+
+  @include responsive(md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+p {
+  margin-bottom: $spacing-4;
+}
+
+a {
+  color: $color-primary-600;
+  text-decoration: none;
+  transition: color $transition-duration-default;
+
+  &:hover {
+    color: $color-primary-800;
+  }
+}
+
+// Classes de container
+.container {
+  @include container;
+}
+
+// Classes de seção
+.section {
+  padding: $spacing-16 0;
+
+  &--light {
+    background-color: $color-white;
+  }
+
+  &--gray {
+    background-color: $color-primary-50;
+  }
+
+  &--hero {
+    padding-top: $spacing-32;
+    padding-bottom: $spacing-24;
+  }
+}
+
+// Classes de botões
+.btn {
+  @include btn;
+}
+
+.btn-primary {
+  @include btn-primary;
+}
+
+.btn-secondary {
+  @include btn-secondary;
+}
+
+.btn-accent {
+  @include btn-accent;
+}
+
+.btn-lg {
+  padding: $spacing-4 $spacing-10;
+  font-size: $font-size-lg;
+}
+
+// Classes de imagem
+.img-responsive {
+  @include img-responsive;
+}
+
+.img-grayscale {
+  @include img-grayscale;
+}
+
+// Classes de flex
+.flex {
+  @include flex;
+}
+
+.flex-col {
+  @include flex-col;
+}
+
+.items-center {
+  @include items-center;
+}
+
+.justify-center {
+  @include justify-center;
+}
+
+.justify-between {
+  @include justify-between;
+}
+
+// Classes de espaçamento
+.mx-auto {
+  @include mx-auto;
+}
+
+.mb-2 {
+  @include mb-2;
+}
+
+.mb-4 {
+  @include mb-4;
+}
+
+.mb-6 {
+  @include mb-6;
+}
+
+.mb-8 {
+  @include mb-8;
+}
+
+.mb-12 {
+  @include mb-12;
+}
+
+// Classes de tipografia
+.text-center {
+  @include text-center;
+}
+
+.text-white {
+  @include text-white;
+}
+
+.font-bold {
+  @include font-bold;
+}
+
+.font-semibold {
+  @include font-semibold;
+}
+
+.text-lg {
+  @include text-lg;
+}
+
+.text-xl {
+  @include text-xl;
+}
+
+.text-2xl {
+  @include text-2xl;
+}
+
+// Classes de arredondamento
+.rounded-lg {
+  @include rounded-lg;
+}
+
+.rounded-xl {
+  @include rounded-xl;
+}
+
+// Classes de sombra
+.shadow-md {
+  @include shadow-md;
+}
+
+.shadow-lg {
+  @include shadow-lg;
+}
+
+// Ajustes para Angular Material
+.mat-mdc-form-field .mdc-notched-outline__notch {
+  border-right: none !important;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: transparent !important;
+}
+
+// Classes de utilidade
+.max-w-sm {
+  max-width: 24rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
+}

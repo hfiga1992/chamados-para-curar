@@ -1,0 +1,91 @@
+/* Estilos para o componente de cadastro de devocionais */
+:host {
+  display: block;
+}
+
+/* Ajustes para o formulário */
+mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Estilos para o spinner dentro do botão */
+button mat-spinner {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Estilos para os cards */
+mat-card {
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+/* Estilos para os snackbars */
+:host ::ng-deep .success-snackbar {
+  background-color: #10b981;
+  color: white;
+}
+
+:host ::ng-deep .error-snackbar {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .flex.justify-end {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .flex.justify-end button {
+    width: 100%;
+  }
+
+  .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Melhorias visuais para campos de formulário */
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  height: 22px !important;
+}
+
+::ng-deep .mat-mdc-form-field {
+  margin-bottom: 0.5rem;
+}
+
+/* Estilo para o campo de data */
+::ng-deep .mat-datepicker-toggle {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+/* Ajustes para o card de dicas */
+.text-blue-500 {
+  color: #3b82f6;
+}
+
+.bg-blue-50 {
+  background-color: #eff6ff;
+}
+
+.border-blue-100 {
+  border-color: #dbeafe;
+}
+
+/* Estilos para a lista de dicas */
+ul.list-disc {
+  padding-left: 1.5rem;
+}
+
+ul.list-disc li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}

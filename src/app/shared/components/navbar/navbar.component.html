@@ -1,0 +1,61 @@
+<mat-toolbar color="primary" class="bg-primary-900">
+  <div class="navbar-container">
+    <div class="flex items-center">
+      <a routerLink="/" class="app-title">
+        <img src="assets/logo.png" alt="Chamados Para Curar" class="h-8">
+      </a>
+
+      <!-- Links de navegação para todos os usuários -->
+      <nav class="nav-links">
+        <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="nav-link text-white hover:text-gray-200">
+          Home
+        </a>
+        <a routerLink="/sobre" routerLinkActive="active-link" class="nav-link text-white hover:text-gray-200">
+          Sobre
+        </a>
+        <a href="https://hotmart.com/pt-br/marketplace/produtos/chamados-para-curar-feridas-fechadas-propositos-abertos/J99779886D"
+           target="_blank" class="nav-link text-white hover:text-gray-200">
+          Curso
+        </a>
+        <a routerLink="/seminario" routerLinkActive="active-link" class="nav-link text-white hover:text-gray-200">
+          Seminário
+        </a>
+      </nav>
+    </div>
+
+    <div class="user-actions" *ngIf="usuario">
+      <!-- Exibir "Olá, [nome]" se o usuário estiver logado -->
+      <span class="greeting hidden md:inline text-white">
+        <span *ngIf="usuario.nome">Olá, {{ usuario.nome }}</span>
+        <span *ngIf="!usuario.nome">Olá, {{ usuario.email }}</span>
+      </span>
+
+      <!-- Botão de perfil -->
+      <a routerLink="/perfil" routerLinkActive="active-link" class="ml-2 mr-2 text-white" matTooltip="Perfil">
+        <mat-icon>person</mat-icon>
+      </a>
+
+      <!-- Botão de devocional -->
+      <a routerLink="/devocionais" routerLinkActive="active-link" class="mr-2 text-white" matTooltip="Devocional">
+        <mat-icon>menu_book</mat-icon>
+      </a>
+
+      <!-- Botão de logout -->
+      <button
+        (click)="logout()"
+        mat-icon-button
+        aria-label="Sair"
+        matTooltip="Sair"
+        class="text-white">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div>
+
+    <!-- Botão de login se o usuário não estiver logado -->
+    <div class="user-actions" *ngIf="!usuario">
+      <a routerLink="/login" class="login-button bg-white text-primary-900 hover:bg-gray-100">
+        Login
+      </a>
+    </div>
+  </div>
+</mat-toolbar>

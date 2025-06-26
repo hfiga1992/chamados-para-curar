@@ -1,0 +1,421 @@
+@import 'variables';
+
+// Layout e Container
+@mixin container {
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+// Flex
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-col {
+  @include flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  @include flex;
+  flex-direction: row;
+}
+
+@mixin items-center {
+  align-items: center;
+}
+
+@mixin justify-center {
+  justify-content: center;
+}
+
+@mixin justify-between {
+  justify-content: space-between;
+}
+
+// Tipografia
+@mixin font-bold {
+  font-weight: 700;
+}
+
+@mixin font-semibold {
+  font-weight: 600;
+}
+
+@mixin font-medium {
+  font-weight: 500;
+}
+
+@mixin font-light {
+  font-weight: 300;
+}
+
+@mixin text-center {
+  text-align: center;
+}
+
+@mixin tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+// Tamanhos de fonte
+@mixin text-sm {
+  font-size: $font-size-sm;
+}
+
+@mixin text-base {
+  font-size: $font-size-base;
+}
+
+@mixin text-lg {
+  font-size: $font-size-lg;
+}
+
+@mixin text-xl {
+  font-size: $font-size-xl;
+}
+
+@mixin text-2xl {
+  font-size: $font-size-2xl;
+}
+
+@mixin text-3xl {
+  font-size: $font-size-3xl;
+}
+
+@mixin text-4xl {
+  font-size: $font-size-4xl;
+}
+
+@mixin text-5xl {
+  font-size: $font-size-5xl;
+}
+
+@mixin text-6xl {
+  font-size: $font-size-6xl;
+}
+
+// Espaçamentos
+@mixin p-0 {
+  padding: 0;
+}
+
+@mixin p-1 {
+  padding: $spacing-1;
+}
+
+@mixin p-2 {
+  padding: $spacing-2;
+}
+
+@mixin p-4 {
+  padding: $spacing-4;
+}
+
+@mixin p-6 {
+  padding: $spacing-6;
+}
+
+@mixin p-8 {
+  padding: $spacing-8;
+}
+
+@mixin p-12 {
+  padding: $spacing-12;
+}
+
+@mixin px-4 {
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+}
+
+@mixin px-6 {
+  padding-left: $spacing-6;
+  padding-right: $spacing-6;
+}
+
+@mixin py-2 {
+  padding-top: $spacing-2;
+  padding-bottom: $spacing-2;
+}
+
+@mixin py-3 {
+  padding-top: $spacing-3;
+  padding-bottom: $spacing-3;
+}
+
+@mixin py-4 {
+  padding-top: $spacing-4;
+  padding-bottom: $spacing-4;
+}
+
+@mixin py-8 {
+  padding-top: $spacing-8;
+  padding-bottom: $spacing-8;
+}
+
+@mixin py-12 {
+  padding-top: $spacing-12;
+  padding-bottom: $spacing-12;
+}
+
+@mixin py-16 {
+  padding-top: $spacing-16;
+  padding-bottom: $spacing-16;
+}
+
+@mixin py-24 {
+  padding-top: $spacing-24;
+  padding-bottom: $spacing-24;
+}
+
+@mixin pt-32 {
+  padding-top: $spacing-32;
+}
+
+@mixin pb-24 {
+  padding-bottom: $spacing-24;
+}
+
+// Margens
+@mixin m-0 {
+  margin: 0;
+}
+
+@mixin m-auto {
+  margin: auto;
+}
+
+@mixin mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin mb-2 {
+  margin-bottom: $spacing-2;
+}
+
+@mixin mb-3 {
+  margin-bottom: $spacing-3;
+}
+
+@mixin mb-4 {
+  margin-bottom: $spacing-4;
+}
+
+@mixin mb-6 {
+  margin-bottom: $spacing-6;
+}
+
+@mixin mb-8 {
+  margin-bottom: $spacing-8;
+}
+
+@mixin mb-10 {
+  margin-bottom: $spacing-10;
+}
+
+@mixin mb-12 {
+  margin-bottom: $spacing-12;
+}
+
+@mixin mb-16 {
+  margin-bottom: $spacing-16;
+}
+
+@mixin mt-12 {
+  margin-top: $spacing-12;
+}
+
+// Cores de fundo
+@mixin bg-white {
+  background-color: $color-white;
+}
+
+@mixin bg-primary-50 {
+  background-color: $color-primary-50;
+}
+
+@mixin bg-primary-800 {
+  background-color: $color-primary-800;
+}
+
+@mixin bg-primary-900 {
+  background-color: $color-primary-900;
+}
+
+@mixin bg-secondary-700 {
+  background-color: $color-secondary-700;
+}
+
+@mixin bg-accent-600 {
+  background-color: $color-accent-600;
+}
+
+// Cores de texto
+@mixin text-white {
+  color: $color-white;
+}
+
+@mixin text-primary-600 {
+  color: $color-primary-600;
+}
+
+@mixin text-primary-700 {
+  color: $color-primary-700;
+}
+
+@mixin text-primary-800 {
+  color: $color-primary-800;
+}
+
+@mixin text-primary-900 {
+  color: $color-primary-900;
+}
+
+// Bordas
+@mixin rounded-lg {
+  border-radius: $border-radius-lg;
+}
+
+@mixin rounded-xl {
+  border-radius: $border-radius-xl;
+}
+
+@mixin rounded-full {
+  border-radius: $border-radius-full;
+}
+
+// Sombras
+@mixin shadow-md {
+  box-shadow: $shadow-md;
+}
+
+@mixin shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+@mixin shadow-xl {
+  box-shadow: $shadow-xl;
+}
+
+// Transições
+@mixin transition-all {
+  transition: all $transition-duration-default $transition-timing-default;
+}
+
+// Hover
+@mixin hover-bg-primary-900 {
+  &:hover {
+    background-color: $color-primary-900;
+  }
+}
+
+@mixin hover-bg-secondary-800 {
+  &:hover {
+    background-color: $color-secondary-800;
+  }
+}
+
+@mixin hover-bg-accent-700 {
+  &:hover {
+    background-color: $color-accent-700;
+  }
+}
+
+@mixin hover-shadow-lg {
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Responsividade
+@mixin responsive($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $breakpoint == 2xl {
+    @media (min-width: $breakpoint-2xl) {
+      @content;
+    }
+  }
+}
+
+// Botões
+@mixin btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3 $spacing-6;
+  border-radius: $border-radius-lg;
+  font-weight: 500;
+  transition: all $transition-duration-default;
+}
+
+@mixin btn-primary {
+  @include btn;
+  background-color: $color-primary-800;
+  color: $color-white;
+  box-shadow: $shadow-md;
+
+  &:hover {
+    background-color: $color-primary-900;
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin btn-secondary {
+  @include btn;
+  background-color: $color-secondary-700;
+  color: $color-white;
+  box-shadow: $shadow-md;
+
+  &:hover {
+    background-color: $color-secondary-800;
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin btn-accent {
+  @include btn;
+  background-color: $color-accent-600;
+  color: $color-white;
+  box-shadow: $shadow-md;
+
+  &:hover {
+    background-color: $color-accent-700;
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Imagens
+@mixin img-responsive {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@mixin img-grayscale {
+  filter: grayscale(100%);
+  transition: filter $transition-duration-default;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}

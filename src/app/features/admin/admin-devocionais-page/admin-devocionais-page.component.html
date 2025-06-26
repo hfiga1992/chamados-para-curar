@@ -1,0 +1,136 @@
+<div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
+    <!-- Cabeçalho -->
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-2xl font-bold text-gray-900">Cadastro de Devocionais</h1>
+      <a routerLink="/perfil" class="flex items-center text-blue-600 hover:text-blue-800">
+        <mat-icon class="mr-1">arrow_back</mat-icon>
+        <span>Voltar ao Perfil</span>
+      </a>
+    </div>
+
+    <!-- Card do formulário -->
+    <mat-card class="mb-8 rounded-lg shadow-lg overflow-hidden">
+      <mat-card-header class="bg-gray-100 p-6 border-b border-gray-200">
+        <mat-card-title>Novo Devocional</mat-card-title>
+        <mat-card-subtitle>Preencha os campos para cadastrar um novo devocional</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="p-6">
+        <form [formGroup]="devocionalForm" (ngSubmit)="onSubmit()">
+          <!-- Campo de título -->
+          <mat-form-field class="w-full mb-4">
+            <mat-label>Título</mat-label>
+            <input
+              matInput
+              formControlName="titulo"
+              placeholder="Digite o título do devocional"
+              required
+            >
+            <mat-error *ngIf="devocionalForm.get('titulo')?.hasError('required')">
+              Título é obrigatório
+            </mat-error>
+            <mat-error *ngIf="devocionalForm.get('titulo')?.hasError('minlength')">
+              Título deve ter pelo menos 3 caracteres
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Campo de data -->
+          <mat-form-field class="w-full mb-4">
+            <mat-label>Data do Devocional</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="data"
+              required
+            >
+            <mat-hint>Selecione a data para publicação do devocional</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="devocionalForm.get('data')?.hasError('required')">
+              Data é obrigatória
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Campo de versículo chave (opcional) -->
+          <mat-form-field class="w-full mb-4">
+            <mat-label>Versículo Chave (opcional)</mat-label>
+            <input
+              matInput
+              formControlName="versiculoChave"
+              placeholder="Ex: 'Porque Deus amou o mundo de tal maneira...' - João 3:16"
+            >
+          </mat-form-field>
+
+          <!-- Campo de conteúdo -->
+          <mat-form-field class="w-full mb-4">
+            <mat-label>Conteúdo</mat-label>
+            <textarea
+              matInput
+              formControlName="conteudo"
+              placeholder="Digite o conteúdo do devocional"
+              rows="10"
+              required
+            ></textarea>
+            <mat-error *ngIf="devocionalForm.get('conteudo')?.hasError('required')">
+              Conteúdo é obrigatório
+            </mat-error>
+            <mat-error *ngIf="devocionalForm.get('conteudo')?.hasError('minlength')">
+              Conteúdo deve ter pelo menos 10 caracteres
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Campo de autor (opcional) -->
+          <mat-form-field class="w-full mb-4">
+            <mat-label>Autor (opcional)</mat-label>
+            <input
+              matInput
+              formControlName="autor"
+              placeholder="Nome do autor do devocional"
+            >
+          </mat-form-field>
+
+          <!-- Botões de ação -->
+          <div class="flex justify-end space-x-4">
+            <button
+              type="button"
+              mat-stroked-button
+              color="warn"
+              (click)="resetForm()"
+              [disabled]="isSubmitting"
+            >
+              Limpar
+            </button>
+            <button
+              type="submit"
+              mat-raised-button
+              color="primary"
+              [disabled]="devocionalForm.invalid || isSubmitting"
+            >
+              <mat-icon *ngIf="!isSubmitting">save</mat-icon>
+              <mat-spinner *ngIf="isSubmitting" diameter="20" class="mr-2"></mat-spinner>
+              <span>{{ isSubmitting ? 'Salvando...' : 'Salvar Devocional' }}</span>
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Dicas de uso -->
+    <mat-card class="rounded-lg shadow-lg overflow-hidden">
+      <mat-card-header class="bg-blue-50 p-4 border-b border-blue-100">
+        <mat-icon class="text-blue-500 mr-2">info</mat-icon>
+        <mat-card-title>Dicas para criação de devocionais</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="p-6">
+        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+          <li>Escolha um título inspirador e relevante para o tema do devocional.</li>
+          <li>Inclua um versículo bíblico chave que se relacione com o tema.</li>
+          <li>Escreva um conteúdo que seja edificante e prático para a vida dos leitores.</li>
+          <li>Revise o texto para garantir clareza e correção gramatical.</li>
+          <li>Você pode programar devocionais para datas futuras.</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

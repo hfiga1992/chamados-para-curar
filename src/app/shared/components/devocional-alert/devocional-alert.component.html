@@ -1,0 +1,17 @@
+<div class="devocional-alert-container" *ngIf="mostrarAlerta">
+  <mat-card class="alert-card">
+    <div class="alert-content">
+      <mat-icon class="alert-icon">announcement</mat-icon>
+      <span class="alert-message">Seu devocional de hoje está disponível. Clique aqui para ler.</span>
+      <div class="alert-actions">
+        <button mat-button color="primary" (click)="irParaDevocional()">
+          <mat-icon>menu_book</mat-icon>
+          Ler agora
+        </button>
+        <button mat-icon-button (click)="fecharAlerta()" matTooltip="Fechar">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

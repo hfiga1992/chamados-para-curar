@@ -1,0 +1,67 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Chamados para Curar" class="logo-image">
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-field">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input id="email-input" matInput formControlName="email" type="email" placeholder="Digite seu email">
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+              Email é obrigatório
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+              Email inválido
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput formControlName="senha" [type]="hidePassword ? 'password' : 'text'" placeholder="Digite sua senha">
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button" aria-label="Toggle password visibility">
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.get('senha')?.hasError('required')">
+              Senha é obrigatória
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('senha')?.hasError('minlength')">
+              Senha deve ter pelo menos 6 caracteres
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="forgot-password">
+          <a (click)="esqueceuSenha()" class="link">Esqueci minha senha</a>
+        </div>
+
+        <div class="error-message" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <div class="button-container">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="isLoading || loginForm.invalid"
+            class="login-button">
+            <mat-spinner *ngIf="isLoading" [diameter]="20"></mat-spinner>
+            <span *ngIf="!isLoading">Entrar</span>
+          </button>
+        </div>
+
+        <div class="register-container">
+          <span>Não tem uma conta?</span>
+          <a (click)="criarConta()" class="link">Criar uma conta</a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

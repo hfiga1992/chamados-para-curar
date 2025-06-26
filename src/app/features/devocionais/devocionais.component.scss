@@ -1,0 +1,283 @@
+.devocional-container {
+  min-height: calc(100vh - 64px);
+  background-color: #f9fafb;
+  padding: 1rem;
+}
+
+.content-container {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.page-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.back-link:hover {
+  color: #1d4ed8;
+}
+
+.back-icon {
+  margin-right: 0.25rem;
+  font-size: 1.25rem;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.retry-button {
+  margin-top: 0.5rem;
+}
+
+.devocional-card {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card-header {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #f3f4f6;
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-subtitle {
+  margin-top: 0.5rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-actions {
+  padding: 1rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.action-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.mark-read-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
+}
+
+.lido-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.75rem;
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.lido-icon {
+  font-size: 1rem;
+  margin-right: 0.25rem;
+  color: #059669;
+}
+
+.lido-text {
+  font-size: 0.75rem;
+}
+
+.lido-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #059669;
+  font-weight: 500;
+}
+
+.versiculo {
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #4b5563;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.prose {
+  color: #1f2937;
+}
+
+.devocional-text {
+  white-space: pre-line;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  letter-spacing: 0.025em;
+}
+
+.autor-container {
+  margin-top: 1.5rem;
+  text-align: right;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 3rem 0;
+  background-color: #fefce8;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid #fef9c3;
+}
+
+.info-icon {
+  color: #eab308;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-text {
+  color: #374151;
+  font-size: 1.125rem;
+}
+
+.empty-subtext {
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+/* Classes para os snackbars */
+:host ::ng-deep .success-snackbar {
+  background-color: #10b981;
+  color: white;
+}
+
+:host ::ng-deep .error-snackbar {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* Responsividade */
+@media (min-width: 640px) {
+  .devocional-container {
+    padding: 1.5rem;
+  }
+
+  .content-container {
+    padding: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .back-link, .card-subtitle, .error-message, .devocional-text, .versiculo, .autor-container {
+    font-size: 1rem;
+  }
+
+  .card-header {
+    padding: 1.5rem;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-actions {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .lido-indicator {
+    font-size: 0.875rem;
+  }
+
+  .lido-text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Estilos específicos para melhorar a experiência de leitura */
+:host ::ng-deep .mat-card {
+  background-color: #fff;
+}
+
+:host ::ng-deep .prose p {
+  margin-bottom: 1rem;
+}
+
+/* Melhorar visualização em dispositivos móveis */
+@media (max-width: 640px) {
+  .devocional-container {
+    padding-bottom: 4rem;
+  }
+}
+
+/* Melhorar contraste e legibilidade */
+:host ::ng-deep .prose {
+  color: #1f2937;
+
+  p {
+    line-height: 1.8;
+  }
+
+  /* Ajustar espaço entre parágrafos para melhorar leitura */
+  p + p {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Dar destaque a elementos importantes */
+:host ::ng-deep mat-card-title {
+  font-weight: 700;
+}

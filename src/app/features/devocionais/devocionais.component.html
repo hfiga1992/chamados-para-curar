@@ -1,0 +1,89 @@
+<div class="devocional-container">
+  <div class="content-container">
+    <!-- Cabeçalho e navegação -->
+    <div class="header-section">
+      <h1 class="page-title">Devocional do Dia</h1>
+      <a routerLink="/perfil" class="back-link">
+        <mat-icon class="back-icon">arrow_back</mat-icon>
+        <span class="back-text">Voltar</span>
+      </a>
+    </div>
+
+    <!-- Loading spinner -->
+    <div *ngIf="isLoading" class="loading-container">
+      <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+
+    <!-- Mensagem de erro -->
+    <div *ngIf="error" class="error-message">
+      <p>{{ error }}</p>
+      <button mat-button color="primary" (click)="carregarDevocionalDoDia()" class="retry-button">
+        Tentar novamente
+      </button>
+    </div>
+
+    <!-- Conteúdo do devocional -->
+    <mat-card *ngIf="!isLoading && !error && devocional" class="devocional-card">
+      <mat-card-header class="card-header">
+        <mat-card-title class="card-title">
+          {{ devocional.titulo }}
+          <!-- Indicador de devocional lido -->
+          <span *ngIf="devocionalLido" class="lido-indicator">
+            <mat-icon class="lido-icon">check_circle</mat-icon>
+            <span class="lido-text">Lido</span>
+          </span>
+        </mat-card-title>
+        <mat-card-subtitle class="card-subtitle">
+          {{ formatarData(devocional.data) }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="card-content">
+        <!-- Versículo chave se disponível -->
+        <blockquote *ngIf="devocional.versiculoChave" class="versiculo">
+          {{ devocional.versiculoChave }}
+        </blockquote>
+
+        <!-- Conteúdo principal do devocional -->
+        <div class="prose">
+          <p class="devocional-text">{{ devocional.conteudo }}</p>
+        </div>
+
+        <!-- Autor se disponível -->
+        <div *ngIf="devocional.autor" class="autor-container">
+          <p>— {{ devocional.autor }}</p>
+        </div>
+      </mat-card-content>
+
+      <!-- Botão para marcar como lido -->
+      <mat-card-actions class="card-actions">
+        <div class="action-container">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="marcarComoLido()"
+            *ngIf="!devocionalLido"
+            [disabled]="isMarcandoLido"
+            class="mark-read-button"
+          >
+            <mat-icon *ngIf="!isMarcandoLido">check</mat-icon>
+            <mat-spinner *ngIf="isMarcandoLido" diameter="20"></mat-spinner>
+            <span>Marcar como lido</span>
+          </button>
+
+          <div *ngIf="devocionalLido" class="lido-message">
+            <mat-icon>done_all</mat-icon>
+            <span>Devocional lido hoje!</span>
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Mensagem quando não há devocional -->
+    <div *ngIf="!isLoading && !error && !devocional" class="empty-message">
+      <mat-icon class="info-icon">info</mat-icon>
+      <p class="empty-text">Devocional ainda não disponível para hoje.</p>
+      <p class="empty-subtext">Por favor, volte mais tarde.</p>
+    </div>
+  </div>
+</div>

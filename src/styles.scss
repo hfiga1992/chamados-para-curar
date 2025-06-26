@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+/* Arquivo de estilos principal */
+@import 'assets/scss/main';
+
+/* Importando o tema do Angular Material */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* Estilos básicos para garantir uma aparência adequada */
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+/* Botões com estilo especial para o projeto */
+.btn {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center;
+}
+
+.btn-primary {
+  @apply bg-primary-800 text-white hover:bg-primary-900 shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-secondary-700 text-white hover:bg-secondary-800 shadow-md hover:shadow-lg;
+}
+
+.btn-outline {
+  @apply bg-transparent border-2 border-gray-300 text-gray-800 hover:bg-gray-100 hover:border-gray-400;
+}
+
+/* Botão de acento com uma cor suave */
+.btn-accent {
+  @apply bg-accent-600 text-white hover:bg-accent-700 shadow-md hover:shadow-lg;
+}
+
+/* Headings com espaçamento de letras mais apertado */
+h1, h2, h3, h4, h5, h6 {
+  @apply tracking-tight font-bold text-primary-900;
+}
+
+/* Corrigir linha vertical nos inputs Material */
+.mat-mdc-form-field .mdc-notched-outline__notch {
+  border-right: none !important;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: transparent !important;
+}
+
+/* Estilo para texto com cor mais suave */
+.text-muted {
+  @apply text-primary-500;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Inter', Roboto, "Helvetica Neue", sans-serif; }

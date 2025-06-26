@@ -1,0 +1,127 @@
+/* Estilos para a navbar */
+mat-toolbar {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #000000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-title {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.greeting {
+  margin-right: 1rem;
+  font-size: 0.9rem;
+  color: white !important;
+}
+
+/* Estilos para os links de navegação */
+.nav-links {
+  display: flex;
+  margin-left: 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0 0.75rem;
+  height: 100%;
+  transition: color 0.2s ease;
+  margin-left: 0.5rem;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link mat-icon {
+  margin-right: 0.25rem;
+  font-size: 1.2rem;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.active-link {
+  color: white;
+  font-weight: 500;
+  border-bottom: 3px solid white;
+}
+
+button[mat-icon-button], a[matTooltip] mat-icon {
+  color: white;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+}
+
+.login-button {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  border: 1px solid white;
+
+  &:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    margin-left: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0 0.5rem;
+    margin-left: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  .app-title {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-container {
+    padding: 0 8px;
+  }
+
+  .nav-link {
+    padding: 0 0.35rem;
+    margin-left: 0.15rem;
+    font-size: 0.85rem;
+  }
+
+  .app-title {
+    font-size: 0.9rem;
+  }
+}

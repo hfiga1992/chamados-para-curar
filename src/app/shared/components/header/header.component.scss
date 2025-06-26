@@ -1,0 +1,140 @@
+@import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: $color-primary-900;
+  color: $color-white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &--scrolled {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    .header__logo {
+      height: 3rem;
+    }
+
+    .header__content {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  &__container {
+    max-width: $container-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: padding 0.3s ease;
+  }
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo-link {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-right: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 4rem;
+    margin-right: 0.5rem;
+    transition: height 0.3s ease;
+  }
+
+  &__nav {
+    &--desktop {
+      display: none;
+
+      @include responsive(md) {
+        display: block;
+      }
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__nav-link {
+    color: $color-white;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-gray-200;
+    }
+  }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+  }
+
+  &__login-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid $color-white;
+    border-radius: 0.25rem;
+    color: $color-white;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-primary-900;
+    }
+  }
+
+  &__mobile-nav {
+    margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    @include responsive(md) {
+      display: none;
+    }
+  }
+
+  &__mobile-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__mobile-nav-link {
+    color: $color-white;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-gray-200;
+    }
+  }
+
+  &__spacer {
+    height: 6rem;
+
+    @include responsive(md) {
+      height: 5rem;
+    }
+  }
+}

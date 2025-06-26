@@ -1,0 +1,131 @@
+@import 'variables';
+@import 'mixins';
+
+.hero-section {
+  background-color: $color-primary-50;
+  padding-top: $spacing-32;
+  padding-bottom: $spacing-24;
+
+  &__logo {
+    height: 8rem;
+    margin: 0 auto $spacing-8;
+  }
+
+  &__tagline {
+    font-size: $font-size-2xl;
+    color: $color-primary-600;
+    margin-bottom: $spacing-12;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+    justify-content: center;
+    margin-bottom: $spacing-16;
+
+    @include responsive(md) {
+      flex-direction: row;
+    }
+  }
+
+  &__image-container {
+    margin-top: $spacing-12;
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-xl;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      @include img-grayscale;
+    }
+  }
+}
+
+.content-section {
+  padding: $spacing-24 0;
+
+  &--white {
+    background-color: $color-white;
+  }
+
+  &--gray {
+    background-color: $color-primary-50;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-16;
+
+    @include responsive(md) {
+      flex-direction: row;
+
+      &--reverse {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  &__content {
+    @include responsive(md) {
+      width: 50%;
+    }
+
+    h2 {
+      font-size: $font-size-4xl;
+      font-weight: 700;
+      color: $color-primary-900;
+      margin-bottom: $spacing-6;
+    }
+
+    p {
+      font-size: $font-size-xl;
+      color: $color-primary-700;
+      margin-bottom: $spacing-8;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: $spacing-8;
+      margin-bottom: $spacing-10;
+      font-size: $font-size-xl;
+      color: $color-primary-700;
+
+      li {
+        margin-bottom: $spacing-3;
+      }
+    }
+  }
+
+  &__image {
+    @include responsive(md) {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &-wrapper {
+      border-radius: $border-radius-xl;
+      overflow: hidden;
+      box-shadow: $shadow-lg;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        @include img-grayscale;
+      }
+    }
+  }
+}
