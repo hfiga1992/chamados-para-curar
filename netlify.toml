@@ -1,0 +1,7 @@
+[build]
+  publish = "dist/chamados-para-curar"
+  command = "npm run netlify:build"
+
+[build.environment]
+  NODE_VERSION = "20.9.0"
+  NPM_VERSION = "10.1.0"
