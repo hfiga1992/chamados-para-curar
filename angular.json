@@ -57,7 +57,7 @@
                 }
               ],
               "outputHashing": "all",
-              "outputMode": "server"
+              "outputMode": "static"
             },
             "development": {
               "optimization": false,
