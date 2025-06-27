@@ -12,7 +12,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:chamados-para-curar": "node dist/chamados-para-curar/server/server.mjs",
-    "netlify:build": "npx --no-install @angular/cli build --configuration=production && cp _redirects dist/chamados-para-curar/"
+    "netlify:build": "npx --no-install @angular/cli build --configuration=production && cp _redirects dist/chamados-para-curar/ && echo '/* /index.html 200' > dist/chamados-para-curar/_redirects"
   },
   "private": true,
   "dependencies": {

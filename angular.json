@@ -69,13 +69,17 @@
                 }
               ],
               "outputHashing": "all",
-              "outputMode": "static"
+              "outputMode": "static",
+              "ssr": false,
+              "prerender": false
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-              "outputMode": "static"
+              "outputMode": "static",
+              "ssr": false,
+              "prerender": false
             }
           },
           "defaultConfiguration": "production"
