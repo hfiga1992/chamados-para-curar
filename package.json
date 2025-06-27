@@ -9,10 +9,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "echo '/*    /index.html   200' > dist/chamados-para-curar/_redirects",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:chamados-para-curar": "node dist/chamados-para-curar/server/server.mjs",
-    "netlify:build": "node netlify.build.js"
+    "netlify:build": "node netlify.build.js && echo '/*    /index.html   200' > dist/chamados-para-curar/_redirects"
   },
   "private": true,
   "dependencies": {

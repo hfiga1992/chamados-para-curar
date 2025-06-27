@@ -13,23 +13,38 @@ try {
   process.exit(1);
 }
 
-// Copia o arquivo _redirects
-try {
-  console.log('Copiando arquivo _redirects...');
-  fs.copyFileSync('_redirects', path.join('dist', 'chamados-para-curar', '_redirects'));
-} catch (error) {
-  console.log('Arquivo _redirects não encontrado, criando um novo...');
-  fs.writeFileSync(
-    path.join('dist', 'chamados-para-curar', '_redirects'),
-    '/* /index.html 200'
-  );
-}
-
 // Remove a pasta server se existir
 const serverPath = path.join('dist', 'chamados-para-curar', 'server');
 if (fs.existsSync(serverPath)) {
   console.log('Removendo pasta server...');
-  fs.rmdirSync(serverPath, { recursive: true });
+  try {
+    fs.rmdirSync(serverPath, { recursive: true });
+  } catch (error) {
+    console.warn('Erro ao remover pasta server:', error);
+  }
+}
+
+// Configura os redirecionamentos do Netlify
+try {
+  console.log('Configurando redirecionamentos do Netlify...');
+  execSync('node setup-netlify.js', { stdio: 'inherit' });
+} catch (error) {
+  console.error('Erro ao configurar redirecionamentos:', error);
+}
+
+// Cria o arquivo netlify.toml na pasta de distribuição
+try {
+  console.log('Criando arquivo netlify.toml na pasta de distribuição...');
+  const netlifyConfig = `
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
+`;
+  fs.writeFileSync(path.join('dist', 'chamados-para-curar', 'netlify.toml'), netlifyConfig);
+} catch (error) {
+  console.error('Erro ao criar netlify.toml:', error);
 }
 
 console.log('Build concluído com sucesso!');
