@@ -3,12 +3,15 @@
   base = "/"
   publish = "dist/chamados-para-curar"
   command = "CI='' npm run netlify:build"
+  ignore_prerender_errors = true
 
 # Configurações de ambiente para o Node.js
 [build.environment]
   NODE_VERSION = "20.11.1"
   NPM_VERSION = "10.1.0"
   CI = "false"
+  DISABLE_SSR = "true"
+  ANGULAR_SKIP_SSR = "true"
 
 # Configurações de redirecionamento para aplicações Single Page Application (SPA)
 [[redirects]]
@@ -24,3 +27,4 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Cache-Control = "public, max-age=31536000"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
