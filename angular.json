@@ -26,20 +26,8 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
-              },
-              {
-                "glob": "_redirects",
-                "input": "./",
-                "output": "./"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -69,17 +57,13 @@
                 }
               ],
               "outputHashing": "all",
-              "outputMode": "static",
-              "ssr": false,
-              "prerender": false
+              "outputMode": "static"
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-              "outputMode": "static",
-              "ssr": false,
-              "prerender": false
+              "outputMode": "static"
             }
           },
           "defaultConfiguration": "production"
