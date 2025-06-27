@@ -2,7 +2,7 @@
   "name": "chamados-para-curar",
   "version": "0.0.0",
   "engines": {
-    "node": "20.9.0",
+    "node": "20.11.1",
     "npm": "10.1.0"
   },
   "scripts": {
