@@ -1,6 +1,10 @@
 {
   "name": "chamados-para-curar",
   "version": "0.0.0",
+  "engines": {
+    "node": "20.9.0",
+    "npm": "10.1.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +12,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:chamados-para-curar": "node dist/chamados-para-curar/server/server.mjs",
-    "netlify:build": "npm ci && ng build --configuration=production"
+    "netlify:build": "npx --no-install @angular/cli build --configuration=production"
   },
   "private": true,
   "dependencies": {

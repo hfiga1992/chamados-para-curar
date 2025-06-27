@@ -1,12 +1,26 @@
+# Configurações de build para o Netlify
 [build]
+  base = "/"
   publish = "dist/chamados-para-curar"
-  command = "npm run netlify:build"
+  command = "CI='' npm run netlify:build"
 
+# Configurações de ambiente para o Node.js
+[build.environment]
+  NODE_VERSION = "20.9.0"
+  NPM_VERSION = "10.1.0"
+  CI = "false"
+
+# Configurações de redirecionamento para aplicações Single Page Application (SPA)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
 
-[build.environment]
-  NODE_VERSION = "20.9.0"
-  NPM_VERSION = "10.1.0"
+# Configurações de cabeçalhos personalizados
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Cache-Control = "public, max-age=31536000"
