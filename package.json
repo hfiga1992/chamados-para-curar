@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:chamados-para-curar": "node dist/chamados-para-curar/server/server.mjs",
-    "netlify:build": "npm ci && ng build"
+    "netlify:build": "npm ci && ng build --configuration=production"
   },
   "private": true,
   "dependencies": {
