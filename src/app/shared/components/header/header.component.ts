@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isScrolled = false;
+  isMenuOpen = false;
 
   ngOnInit() {
     // Verificar a posição inicial do scroll
@@ -21,5 +22,13 @@ export class HeaderComponent implements OnInit {
   checkScroll() {
     // Verificar se o scroll passou de 50px
     this.isScrolled = window.scrollY > 50;
+  }
+
+  toggleMobileMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }

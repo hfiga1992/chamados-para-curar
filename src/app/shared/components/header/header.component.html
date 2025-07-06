@@ -20,20 +20,26 @@
       </div>
 
       <div class="header__auth">
-        <a routerLink="/login" class="header__login-btn">Login</a>
+        <a routerLink="/login" class="header__login-btn header__login-btn--desktop">Login</a>
+        <button class="header__mobile-toggle" (click)="toggleMobileMenu()" aria-label="Menu">
+          <span class="header__hamburger" [ngClass]="{'active': isMenuOpen}"></span>
+        </button>
       </div>
     </div>
 
     <!-- Menu móvel -->
-    <div class="header__mobile-nav">
+    <div class="header__mobile-nav" [ngClass]="{'header__mobile-nav--open': isMenuOpen}">
       <ul class="header__mobile-nav-list">
-        <li class="header__mobile-nav-item"><a routerLink="/" class="header__mobile-nav-link">Home</a></li>
-        <li class="header__mobile-nav-item"><a routerLink="/sobre" class="header__mobile-nav-link">Sobre</a></li>
+        <li class="header__mobile-nav-item"><a routerLink="/" class="header__mobile-nav-link" (click)="closeMenu()">Home</a></li>
+        <li class="header__mobile-nav-item"><a routerLink="/sobre" class="header__mobile-nav-link" (click)="closeMenu()">Sobre</a></li>
         <li class="header__mobile-nav-item">
           <a href="https://hotmart.com/pt-br/marketplace/produtos/chamados-para-curar-feridas-fechadas-propositos-abertos/J99779886D"
-            target="_blank" class="header__mobile-nav-link">Curso</a>
+            target="_blank" class="header__mobile-nav-link" (click)="closeMenu()">Curso</a>
         </li>
-        <li class="header__mobile-nav-item"><a routerLink="/seminario" class="header__mobile-nav-link">Seminário</a></li>
+        <li class="header__mobile-nav-item"><a routerLink="/seminario" class="header__mobile-nav-link" (click)="closeMenu()">Seminário</a></li>
+        <li class="header__mobile-nav-item header__mobile-nav-item--login">
+          <a routerLink="/login" class="header__mobile-nav-link header__mobile-login-btn" (click)="closeMenu()">Login</a>
+        </li>
       </ul>
     </div>
   </div>
